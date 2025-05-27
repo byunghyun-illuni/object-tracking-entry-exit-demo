@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YOLO Object Counter</title>
+</head>
+<body>
+  <h2>Object Tracking & Counting</h2>
+  <button onclick="runPython()">▶ Run main.py</button>
+  <pre id="output"></pre>
+
+  <script>
+    function runPython() {
+      fetch('/run')
+        .then(res => res.text())
+        .then(text => {
+          document.getElementById('output').innerText = text;
+        });
+    }
+  </script>
+</body>
+</html>
+
