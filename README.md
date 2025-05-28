@@ -37,33 +37,54 @@
 
 ## 🛠 설치 및 실행 방법
 
-1. 레포지토리 클론
+### 1. 레포지토리 클론
 ```bash
 git clone https://github.com/yourname/yourrepo.git
 cd yourrepo
-````
-
-2. 가상환경 생성 및 패키지 설치
-
-```bash
-conda create -n torch_env python=3.12 -y
-conda activate torch_env
-pip install -r requirements.txt
 ```
 
-3. YOLO 모델 다운로드
+### 2. uv 설치 (처음 사용하는 경우)
+```bash
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### 3. 가상환경 생성 및 활성화
+```bash
+# 가상환경 생성
+uv venv
+
+# 가상환경 활성화
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+
+# Windows (Command Prompt)
+.venv\Scripts\activate.bat
+
+# macOS/Linux
+source .venv/bin/activate
+```
+
+### 4. 프로젝트 의존성 설치
+```bash
+# 프로젝트를 editable 모드로 설치 (의존성 포함)
+uv pip install -e .
+```
+
+### 5. YOLO 모델 다운로드
 ```bash
 python download_model.py
 ```
 
-4. 웹 서버 실행
-
+### 6. 웹 서버 실행
 ```bash
 python server.py
 ```
 
-5. 웹 브라우저 접속
+### 7. 웹 브라우저 접속
 
 * [http://localhost:5000](http://localhost:5000) 으로 접속
 * ▶ Run main.py 버튼 클릭 시 영상 분석 시작

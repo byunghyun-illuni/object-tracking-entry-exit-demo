@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "object-tracking-entry-exit"
+version = "0.1.0"
+description = "YOLOv8 기반 객체 추적 및 출입 인원 카운팅 시스템"
+authors = [
+    {name = "park.byunghyun", email = "byunghyun@illuni.com"},
+]
+requires-python = "==3.12.*"
+dependencies = [
+    "numpy>=1.26.4",
+    "ultralytics>=8.2.10",
+    "opencv-python>=4.8.0",
+    "flask>=3.0.0",
+    "shapely>=2.0.0",
+    "lap>=0.5.12",
+    "matplotlib>=3.2.2",
+    "pillow>=7.1.2",
+    "pyyaml>=5.3.1",
+    "requests>=2.23.0",
+    "scipy>=1.4.1",
+    "torch>=1.7.0",
+    "torchvision>=0.8.1",
+    "tqdm>=4.64.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.5",
+    "jupyter>=1.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session" 
